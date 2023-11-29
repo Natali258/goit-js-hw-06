@@ -9,12 +9,10 @@ const ingredients = [
 
 //
 
-const list = ingredients
-  .map((el) => {
-    return `<li class="item">${el}</li>`;
-  })
-  .join("\n");
-const ul = document
-  .querySelector("#ingredients")
-  .insertAdjacentHTML("beforeend", list);
-console.log(list);
+const list = ingredients.map((el) => {
+  const li = document.createElement("li");
+  li.classList.add("item");
+  li.textContent = el;
+  return li;
+});
+const ul = document.querySelector("#ingredients").append(...list);
